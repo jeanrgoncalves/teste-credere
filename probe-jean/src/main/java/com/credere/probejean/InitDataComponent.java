@@ -8,6 +8,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 public class InitDataComponent {
 
@@ -18,9 +20,10 @@ public class InitDataComponent {
     public void initData() {
         if (repository.findAll().isEmpty()) {
             ProbePosition probePosition = ProbePosition.builder()
-                    .x(0)
-                    .y(0)
-                    .direction(Directon.D)
+                    .id(UUID.randomUUID().toString())
+                    .x(2)
+                    .y(3)
+                    .direction(Directon.C)
                     .build();
 
             repository.save(probePosition);
