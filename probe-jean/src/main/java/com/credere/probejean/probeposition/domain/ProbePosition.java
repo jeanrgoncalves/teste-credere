@@ -15,8 +15,8 @@ public class ProbePosition {
     @Id
     private String id;
 
-    private int x;
-    private int y;
+    private Integer x;
+    private Integer y;
     private Directon direction;
 
 }

@@ -25,4 +25,9 @@ public class ProbePositionService {
                 });
     }
 
+    public ProbePosition get() {
+        return repository.findAll().stream()
+                .findFirst()
+                .orElseGet(() -> ProbePosition.builder().build());
+    }
 }
