@@ -21,9 +21,9 @@ public class InitDataComponent {
         if (repository.findAll().isEmpty()) {
             ProbePosition probePosition = ProbePosition.builder()
                     .id(UUID.randomUUID().toString())
-                    .x(2)
-                    .y(3)
-                    .direction(Directon.C)
+                    .x(0)
+                    .y(0)
+                    .direction(Directon.D)
                     .build();
 
             repository.save(probePosition);
