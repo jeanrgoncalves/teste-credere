@@ -1,5 +1,9 @@
 package com.credere.probejean.probeposition.domain;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+
+@ApiModel
 public enum Command {
 
     GE("girar 90 graus à esquerda") {
