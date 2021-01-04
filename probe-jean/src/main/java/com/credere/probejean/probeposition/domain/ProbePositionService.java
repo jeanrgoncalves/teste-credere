@@ -38,11 +38,12 @@ public class ProbePositionService {
 
     private ProbePosition processCommands(ProbePosition probePosition, List<Command> commands) {
         for(Command command : commands) {
-            command.exec(probePosition);
+            command.execute(probePosition);
         }
 
         if (validPosition(probePosition)) {
-            return repository.save(probePosition);
+            repository.save(probePosition);
+            return probePosition;
         } else {
             throw new IllegalArgumentException(Messages.INVALID_COMMANDS_SEQUENCE);
         }
@@ -50,7 +51,7 @@ public class ProbePositionService {
 
     private boolean validPosition(ProbePosition probePosition) {
         return (probePosition.getX() >= ShapeDimensions.MIN_X && probePosition.getX() <= ShapeDimensions.MAX_X) &&
-                (probePosition.getY() >= ShapeDimensions.MIN_Y && probePosition.getX() <= ShapeDimensions.MAX_Y);
+                (probePosition.getY() >= ShapeDimensions.MIN_Y && probePosition.getY() <= ShapeDimensions.MAX_Y);
     }
 
     public ProbePosition get() {
